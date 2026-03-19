@@ -299,9 +299,9 @@ function App() {
     terminalGreen: '#00ff00'
   };
 
-  // Correção dinâmica para GitHub Pages vs Local
+  // Correção dinâmica para GitHub Pages vs Local/Vercel
   const isGithubPages = window.location.hostname.includes('github.io');
-  const basename = isGithubPages ? "/portfolio-oficial" : "";
+  const basename = isGithubPages ? "/portfolio-igor" : "";
 
   return (
     <Router basename={basename}>
