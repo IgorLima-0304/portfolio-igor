@@ -261,8 +261,6 @@ const MainHome = ({ colors }) => {
                 </span>
               </motion.div>
             </div>
-
-            <p style={{ fontSize: '0.8rem', color: colors.textGray }}>© 2025 UpixelStudios - Todos os direitos reservados.</p>
           </footer>
 
           <AnimatePresence>
