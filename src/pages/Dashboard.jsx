@@ -35,7 +35,7 @@ const Dashboard = () => {
   const [activeTab, setActiveTab] = useState('STAT');
   const [posts, setPosts] = useState([]);
   const [newPost, setNewPost] = useState({
-    titulo: '', conteudo: '', categoria: '', imagemUrl: '', resumo: ''
+    titulo: '', conteudo: '', categoria: '', imagemUrl: '', resumo: '', linkExterno: ''
   });
 
   // --- CERTIFICADOS ---
@@ -286,14 +286,15 @@ const Dashboard = () => {
               <form onSubmit={handleSavePost} style={styles.formGrid}>
                 <input placeholder="POST_TITLE" value={newPost.titulo} onChange={e => setNewPost({ ...newPost, titulo: e.target.value })} style={styles.input} />
                 <input placeholder="CATEGORY" value={newPost.categoria} onChange={e => setNewPost({ ...newPost, categoria: e.target.value })} style={styles.input} />
-                <input placeholder="BANNER_URL" value={newPost.imagemUrl} onChange={e => setNewPost({ ...newPost, imagemUrl: e.target.value })} style={{ ...styles.input, gridColumn: 'span 2' }} />
+                <input placeholder="BANNER_URL" value={newPost.imagemUrl} onChange={e => setNewPost({ ...newPost, imagemUrl: e.target.value })} style={styles.input} />
+                <input placeholder="EXTERNAL_LINK_URL (Opcional)" value={newPost.linkExterno || ''} onChange={e => setNewPost({ ...newPost, linkExterno: e.target.value })} style={{ ...styles.input, gridColumn: 'span 2' }} />
                 <textarea placeholder="RESUMO (PARA O CARD)" value={newPost.resumo} onChange={e => setNewPost({ ...newPost, resumo: e.target.value })} style={{ ...styles.input, gridColumn: 'span 2', height: '60px' }} />
                 <textarea placeholder="CONTENT (HTML/MARKDOWN)" value={newPost.conteudo} onChange={e => setNewPost({ ...newPost, conteudo: e.target.value })} style={{ ...styles.input, gridColumn: 'span 2', height: '150px' }} />
 
                 <div style={{ gridColumn: 'span 2', display: 'flex', gap: '10px' }}>
                   <button type="submit" style={{ ...styles.submitBtn, flex: 3 }}>{editingPostId ? "COMMIT_EDIT" : "EXECUTE_BLOG_DEPLOY"}</button>
                   {editingPostId && (
-                    <button type="button" onClick={() => { setEditingPostId(null); setNewPost({ titulo: '', conteudo: '', categoria: '', imagemUrl: '', resumo: '' }); }} style={{ ...styles.submitBtn, background: '#ff4d4d', flex: 1 }}>ABORT</button>
+                    <button type="button" onClick={() => { setEditingPostId(null); setNewPost({ titulo: '', conteudo: '', categoria: '', imagemUrl: '', resumo: '', linkExterno: '' }); }} style={{ ...styles.submitBtn, background: '#ff4d4d', flex: 1 }}>ABORT</button>
                   )}
                 </div>
               </form>

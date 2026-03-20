@@ -20,10 +20,10 @@ const Blog = ({ colors }) => {
   // FUNÇÃO PARA FORMATAR DATA
   const formatarData = (dataFirebase) => {
     if (!dataFirebase) return "Data pendente";
-    
+
     // Converte o Timestamp do Firebase
-    const date = dataFirebase.seconds 
-      ? new Date(dataFirebase.seconds * 1000) 
+    const date = dataFirebase.seconds
+      ? new Date(dataFirebase.seconds * 1000)
       : new Date(dataFirebase);
 
     return date.toLocaleDateString('pt-BR', {
@@ -38,9 +38,9 @@ const Blog = ({ colors }) => {
   return (
     <div style={{ backgroundColor: colors.dark, minHeight: '100vh', color: 'white' }}>
       <Navbar />
-      
+
       <main style={{ padding: '120px 20px', maxWidth: '1000px', margin: '0 auto' }}>
-        <motion.h1 
+        <motion.h1
           initial={{ opacity: 0, x: -20 }}
           animate={{ opacity: 1, x: 0 }}
           style={{ color: colors.blue, fontFamily: 'monospace', marginBottom: '40px' }}
@@ -50,17 +50,26 @@ const Blog = ({ colors }) => {
 
         <div style={styles.grid}>
           {posts.map((post) => (
-            <motion.div 
+            <motion.div
               key={post.id}
               whileHover={{ scale: 1.02, borderColor: colors.blue }}
-              onClick={() => navigate(`/blog/${post.id}`)}
+              onClick={() => {
+                if (post.linkExterno) {
+                  window.open(post.linkExterno, '_blank', 'noopener,noreferrer');
+                } else {
+                  navigate(`/blog/${post.id}`);
+                }
+              }}
               style={{ ...styles.card, borderColor: `${colors.blue}44` }}
             >
               {post.imagemUrl && (
                 <img src={post.imagemUrl} alt={post.titulo} style={styles.image} />
               )}
               <div style={styles.content}>
-                <span style={{ color: colors.blue, fontSize: '0.8rem' }}>[{post.categoria?.toUpperCase()}]</span>
+                <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '10px' }}>
+                  <span style={{ color: colors.blue, fontSize: '0.8rem' }}>[{post.categoria?.toUpperCase()}]</span>
+                  {post.linkExterno && <span style={{ color: colors.purple, fontSize: '0.7rem', border: `1px solid ${colors.purple}`, padding: '2px 6px', borderRadius: '4px' }}>EXTERNAL_LINK</span>}
+                </div>
                 <h2 style={styles.title}>{post.titulo}</h2>
                 <p style={styles.summary}>{post.resumo}</p>
                 {/* AQUI ESTÁ A CORREÇÃO DA DATA */}
