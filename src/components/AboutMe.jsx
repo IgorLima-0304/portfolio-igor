@@ -82,17 +82,6 @@ const AboutMe = () => {
               Estagiário no <strong>Ministério da Gestão e da Inovação</strong>, otimizando o rendimento interno da equipe através de soluções customizadas.
             </div>
           </div>
-
-```
-          {/* Item: Projetos Autorais
-          <div style={itemContainerStyle}>
-            <div style={titleHeaderStyle}><FaTerminal /> • UPIXEL STUDIOS:</div> 
-            <div style={descriptionStyle}>
-              Meu projeto de criação de uma desenvolvedora de experiencias interativas em 3D/2D usando Unity como principal ferramenta.
-            </div>
-          </div> 
-          */}
-```
         </div>
 
       </div>
