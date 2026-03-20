@@ -62,8 +62,8 @@ const AboutMe = () => {
         <div style={styles.bioText}>
           <p style={styles.introParagraph}>
             Desenvolvedor apaixonado por criar experiências onde a <strong>criatividade</strong> e a <strong>interatividade</strong> se encontram. 
-            Com formação voltada para a <strong>Engenharia de Computação</strong>, transito entre o desenvolvimento web e a criação de jogos.
-          </p>
+            Com formação voltada para a <strong>Engenharia de Computação</strong>, muito interessado no desenvolvimento de software e em Cibersegurança.
+          
 
           <strong style={styles.subHeader}>Trajetória Técnica:</strong>
 
